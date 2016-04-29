@@ -45,8 +45,8 @@
             {"to": "boundary", "emit": "l", "weight": 0.08}
         ],
         "boundary": [
-            {"to": "onset", "emit": "", "weight": 0.6},
-            {"to": null, "emit": "", "weight": 0.4}
+            {"to": "onset", "emit": "", "weight": 0.95, "add": -0.35},
+            {"to": null, "emit": "", "weight": 0.05, "add": 0.35}
         ]
     },
     "changes": [

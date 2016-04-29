@@ -1,6 +1,7 @@
 from random import random
 from json import load
 from re import sub, escape
+from collections import defaultdict
 
 def main():
     word = _generate()
@@ -10,17 +11,23 @@ def main():
 def _generate():
     config = load(open('machine.json'))
     states = config['states']
-    state = states[config['start']]
+    name = config['start']
     output = []
-    while state is not None:
+    visits = defaultdict(int)
+    while name is not None:
+        state = states[name]
         roll = random()
         total = 0.0
         for transition in state:
             total += transition['weight']
+            if 'add' in transition:
+                total = min(max(total + transition['add'] * visits[name], 0.0), 1.0)
             if roll <= total:
                 output.append(transition["emit"])
-                state = states.get(transition["to"])
+                next_name = transition["to"]
                 break;
+        visits[name] += 1
+        name = next_name
     return ''.join(output)
     
 def _change(word):

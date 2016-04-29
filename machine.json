@@ -1,0 +1,218 @@
+{
+    "start": "start",
+    "boundary": "boundary",
+    "states": {   
+        "start": [
+            {"to": "onset", "emit": "", "weight": 0.9},
+            {"to": "nucleus", "emit": "", "weight": 0.1}
+        ],
+        "onset": [
+            {"to": "nucleus", "emit": "n", "weight": 0.14},
+            {"to": "nucleus", "emit": "m", "weight": 0.07},
+            {"to": "nucleus", "emit": "s", "weight": 0.10},
+            {"to": "nucleus", "emit": "f", "weight": 0.03},
+            {"to": "nucleus", "emit": "x", "weight": 0.04},
+            {"to": "nucleus", "emit": "t", "weight": 0.13},
+            {"to": "nucleus", "emit": "p", "weight": 0.04},
+            {"to": "nucleus", "emit": "k", "weight": 0.06},
+            {"to": "nucleus", "emit": "d", "weight": 0.09},
+            {"to": "nucleus", "emit": "b", "weight": 0.04},
+            {"to": "nucleus", "emit": "g", "weight": 0.02},
+            {"to": "nucleus", "emit": "r", "weight": 0.10},
+            {"to": "nucleus", "emit": "l", "weight": 0.08},
+            {"to": "nucleus", "emit": "w", "weight": 0.03},
+            {"to": "nucleus", "emit": "j", "weight": 0.03}
+        ],
+        "nucleus": [
+            {"to": "coda", "emit": "i", "weight": 0.19},
+            {"to": "coda", "emit": "o", "weight": 0.15},
+            {"to": "coda", "emit": "e", "weight": 0.16},
+            {"to": "coda", "emit": "a", "weight": 0.17},
+            {"to": "coda", "emit": "oi", "weight": 0.05},
+            {"to": "coda", "emit": "ei", "weight": 0.07},
+            {"to": "coda", "emit": "au", "weight": 0.08},
+            {"to": "coda", "emit": "eu", "weight": 0.04},
+            {"to": "coda", "emit": "ai", "weight": 0.09}
+        ],
+        "coda": [
+            {"to": "boundary", "emit": "", "weight": 0.31},
+            {"to": "boundary", "emit": "n", "weight": 0.14},
+            {"to": "boundary", "emit": "m", "weight": 0.07},
+            {"to": "boundary", "emit": "s", "weight": 0.11},
+            {"to": "boundary", "emit": "t", "weight": 0.13},
+            {"to": "boundary", "emit": "k", "weight": 0.06},
+            {"to": "boundary", "emit": "r", "weight": 0.10},
+            {"to": "boundary", "emit": "l", "weight": 0.08}
+        ],
+        "boundary": [
+            {"to": "onset", "emit": "", "weight": 0.6},
+            {"to": null, "emit": "", "weight": 0.4}
+        ]
+    },
+    "changes": [
+        {
+            "name": "Classical Elvish",
+            "rules": [
+                {
+                    "from": ["d", "b", "g", "x"],
+                    "to": ["t", "p", "k", "k"],
+                    "after": ["t", "p", "k"]
+                },
+                {
+                    "from": ["n"],
+                    "to": ["m"],
+                    "before": ["m", "f", "p", "b"]
+                },
+                {
+                    "from": ["t"],
+                    "to": ["$"],
+                    "before": ["p", "k"]
+                }
+            ]
+        },
+        {
+            "name": "diphthong raising",
+            "rules": [
+                {"from": ["oi"], "to": ["ui"]},
+                {"from": ["eu"], "to": ["iu"]}
+            ]
+        },
+        {
+            "name": "palatalization",
+            "rules": [
+                {
+                    "from": ["t", "d"],
+                    "to": ["T", "D"],
+                    "before": ["i", "j"]
+                },
+                {
+                    "from": ["x", "k", "g"],
+                    "to": ["S", "S", "Z"],
+                    "before": ["i", "e", "j"]
+                },
+                {
+                    "from": ["j"],
+                    "to": ["^"],
+                    "after": ["S", "Z", "T", "D"]
+                },
+                {
+                    "from": ["k"],
+                    "to": ["S"],
+                    "before": ["S"]
+                },
+                {
+                    "from": ["t"],
+                    "to": ["T"],
+                    "before": ["T"]
+                },
+                {
+                    "from": ["s", "z"],
+                    "to": ["$", "$"],
+                    "before": ["S", "Z", "T", "D"]
+                }
+            ]
+        },
+        {
+            "name": "monophthongization",
+            "rules": [
+                {"from": ["o"], "to": ["u"]},
+                {"from": ["ui"], "to": ["i"]},
+                {"from": ["ei"], "to": ["i"]},
+                {"from": ["au"], "to": ["o"]},
+                {"from": ["iu"], "to": ["u"]},
+                {"from": ["ai"], "to": ["e"]}
+            ]
+        },
+        {
+            "name": "x deletion",
+            "rules":  [
+                {"from": ["x"], "to": ["k"], "after": ["n", "m", "s", "r", "l"]},
+                {"from": ["x"], "to": [""]}
+            ]
+        },
+        {
+            "name": "diphthongization",
+            "rules": [
+                {
+                    "from": ["ii", "uu", "ee", "oo", "aa"],
+                    "to": ["i", "u", "e", "o", "a"]
+                },
+                {
+                    "from": ["i", "u"],
+                    "to": ["j", "w"],
+                    "before": ["i", "u", "e", "o", "a"]
+                },
+                {
+                    "from": ["i", "u"],
+                    "to": ["j", "w"],
+                    "after": ["i", "u", "e", "o", "a"]
+                },
+                
+                {
+                    "from": ["e", "o"],
+                    "to": ["j", "w"],
+                    "before": ["i", "u", "e", "o", "a"]
+                },
+                {
+                    "from": ["e", "o"],
+                    "to": ["j", "w"],
+                    "after": ["i", "u", "e", "o", "a"]
+                },
+                {
+                    "from": ["jj", "jjj", "ww", "www"],
+                    "to": ["j", "j", "w", "w"]
+                }
+            ]
+        },
+        {
+            "name": "yod coalescence",
+            "rules": [
+                {"from": ["Sj", "Zj", "Tj", "Dj"], "to": ["S", "Z", "T", "D"]}
+            ]
+        },
+        {
+            "name": "fricative voicing",
+            "rules": [
+                {
+                    "from": ["s"],
+                    "to": ["z"],
+                    "before": ["n", "m", "d", "b", "g", "l", "r"]}
+            ]
+        },
+        {
+            "name": "fricative lenition",
+            "rules": [
+                {"from": ["z", "Z", "D"], "to": ["r", "j", "r"]},
+                {"from": ["jj"], "to": ["j"]}
+            ]
+        },
+        {
+            "name": "stop voicing",
+            "rules": [
+                {
+                    "from": ["t", "k"],
+                    "to": ["d", "g"],
+                    "before": ["n", "m", "r", "l"]
+                }
+            ]
+        },
+        {
+            "name": "w fortition",
+            "rules": [
+                {
+                    "from": ["w"],
+                    "to": ["f"],
+                    "before": ["s", "S", "f", "t", "T", "p", "k"]
+                },
+                {"from": ["w"], "to": ["v"]}
+            ]
+        },
+        {
+            "name": "transliteration",
+            "rules": [
+                {"from": ["SS", "TT"], "to": ["ssh", "tth"]},
+                {"from": ["S", "T", "k", "j"], "to": ["sh", "th", "c", "y"]}
+            ]
+        }
+    ]
+}

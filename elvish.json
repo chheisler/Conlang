@@ -67,6 +67,13 @@
                     "from": ["t"],
                     "to": ["$"],
                     "before": ["p", "k"]
+                },
+                {
+                    "from": ["j"], 
+                    "to": [""],
+                    "after": ["^"],
+                    "before": ["i"]
+                    
                 }
             ]
         },
@@ -178,7 +185,14 @@
             "name": "fricative lenition",
             "rules": [
                 {"from": ["z", "Z", "D"], "to": ["r", "j", "r"]},
-                {"from": ["jj"], "to": ["j"]}
+                {"from": ["jj"], "to": ["j"]},
+                {
+                    "from": ["j"], 
+                    "to": [""],
+                    "after": ["^"],
+                    "before": ["i"]
+                    
+                }
             ]
         },
         {
@@ -201,13 +215,14 @@
                 },
                 {"from": ["w"], "to": ["v"]}
             ]
-        },
-        {
-            "name": "transliteration",
-            "rules": [
-                {"from": ["SS", "TT"], "to": ["ssh", "tth"]},
-                {"from": ["S", "T", "k", "j"], "to": ["sh", "th", "c", "y"]}
-            ]
         }
-    ]
+    ],
+    "transliteration": {
+        "rules": [
+            {"from": ["SS", "TT"], "to": ["ssh", "tth"]},
+            {
+                "from": ["S", "T", "k", "j", "z", "x"],
+                "to": ["sh", "th", "c", "y", "s", "h"]}
+        ]
+    }
 }

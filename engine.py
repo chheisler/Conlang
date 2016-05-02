@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from util import keydefaultdict
 from json import load
 from collections import defaultdict

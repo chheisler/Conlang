@@ -1,9 +1,11 @@
-from re import sub
+from re import sub, escape
 
 def transform(word, transform):
     for rule in transform['rules']:
         if 'map' in rule:
-            target = '(?:%s)' % '|'.join(key for key in rule['map'])
+            keys = [escape(key) for key in rule['map']]
+            keys.sort(key=len, reverse=True)
+            target = '(?:%s)' % '|'.join(keys)
         else:
             target = rule['from']
         if 'where' in rule:

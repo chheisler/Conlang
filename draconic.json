@@ -1,35 +1,115 @@
 {
-    "start": "start",
-    "states": {   
-        "start": [
-            {"to": "onset", "emit": "", "weight": 0.9},
-            {"to": "nucleus", "emit": "", "weight": 0.1}
-        ],
+    "start": "onset",
+    "states": {
         "onset": [
-            {"to": "nucleus", "emit": "n", "weight": 0.14},
-            {"to": "nucleus", "emit": "m", "weight": 0.07},
-            {"to": "nucleus", "emit": "s", "weight": 0.10},
-            {"to": "nucleus", "emit": "f", "weight": 0.03},
-            {"to": "nucleus", "emit": "x", "weight": 0.04},
-            {"to": "nucleus", "emit": "t", "weight": 0.13},
-            {"to": "nucleus", "emit": "p", "weight": 0.04},
-            {"to": "nucleus", "emit": "k", "weight": 0.06},
-            {"to": "nucleus", "emit": "d", "weight": 0.09},
-            {"to": "nucleus", "emit": "b", "weight": 0.04},
-            {"to": "nucleus", "emit": "g", "weight": 0.02},
-            {"to": "nucleus", "emit": "r", "weight": 0.10},
-            {"to": "nucleus", "emit": "l", "weight": 0.08},
-            {"to": "nucleus", "emit": "w", "weight": 0.03},
-            {"to": "nucleus", "emit": "j", "weight": 0.03}
+            {"to": "n-onset", "emit": "n", "weight": 1},
+            {"to": "t-onset", "emit": "t", "weight": 1},
+            {"to": "t-onset", "emit": "d", "weight": 1},
+            {"to": "t-onset", "emit": "t_>", "weight": 1},
+            {"to": "s-onset", "emit": "ts", "weight": 1},
+            {"to": "s-onset", "emit": "dz", "weight": 1},
+            {"to": "s-onset", "emit": "ts_>", "weight": 1},
+            {"to": "s-onset", "emit": "s", "weight": 1},
+            {"to": "s-onset", "emit": "z", "weight": 1},
+            {"to": "s-onset", "emit": "s_>", "weight": 1},
+            {"to": "r-onset", "emit": "r", "weight": 1},
+            {"to": "l-onset", "emit": "tK", "weight": 1},
+            {"to": "l-onset", "emit": "dK\\", "weight": 1},
+            {"to": "l-onset", "emit": "tl_>", "weight": 1},
+            {"to": "l-onset", "emit": "K", "weight": 1},
+            {"to": "l-onset", "emit": "K\\", "weight": 1},
+            {"to": "l-onset", "emit": "K_>", "weight": 1},
+            {"to": "r-onset", "emit": "l", "weight": 1},
+            {"to": "h-onset", "emit": "tS", "weight": 1},
+            {"to": "h-onset", "emit": "dZ", "weight": 1},
+            {"to": "h-onset", "emit": "tS_>", "weight": 1},
+            {"to": "h-onset", "emit": "S", "weight": 1},
+            {"to": "h-onset", "emit": "Z", "weight": 1},
+            {"to": "h-onset", "emit": "S_>", "weight": 1},
+            {"to": "h-onset", "emit": "k", "weight": 1},
+            {"to": "h-onset", "emit": "g", "weight": 1},
+            {"to": "h-onset", "emit": "k_>", "weight": 1},
+            {"to": "h-onset", "emit": "x", "weight": 1},
+            {"to": "h-onset", "emit": "G", "weight": 1},
+            {"to": "h-onset", "emit": "x_>", "weight": 1},
+            {"to": "h-onset", "emit": "q", "weight": 1},
+            {"to": "h-onset", "emit": "G\\", "weight": 1},
+            {"to": "h-onset", "emit": "q_>", "weight": 1},
+            {"to": "h-onset", "emit": "X", "weight": 1},
+            {"to": "h-onset", "emit": "R", "weight": 1},
+            {"to": "h-onset", "emit": "X_>", "weight": 1},
+            {"to": "h-onset", "emit": "?", "weight": 1},
+            {"to": "h-onset", "emit": "h", "weight": 1},
+            {"to": "nucleus", "emit": "j", "weight": 1}
+        ],
+        "n-onset": [
+            {"to": "nucleus", "emit": "r", "weight": 1},
+            {"to": "nucleus", "emit": "l", "weight": 1},
+            {"to": "nucleus", "emit": "j", "weight": 1},
+            {"to": "nucleus", "emit": "", "weight": 1}
+        ],
+        "t-onset": [
+            {"to": "nucleus", "emit": "r", "weight": 1},
+            {"to": "nucleus", "emit": "", "weight": 1}
+        ],
+        "s-onset": [
+            {"to": "nucleus", "emit": "n", "weight": 1},
+            {"to": "nucleus", "emit": "r", "weight": 1},
+            {"to": "nucleus", "emit": "l", "weight": 1},
+            {"to": "nucleus", "emit": "", "weight": 1}
+        ],
+        "r-onset": [
+            {"to": "nucleus", "emit": "j", "weight": 1},
+            {"to": "nucleus", "emit": "", "weight": 1}
+        ],
+        "l-onset": [
+            {"to": "nucleus", "emit": "n", "weight": 1},
+            {"to": "nucleus", "emit": "j", "weight": 1},
+            {"to": "nucleus", "emit": "", "weight": 1}
+        ],
+        "h-onset": [
+            {"to": "nucleus", "emit": "n", "weight": 1},
+            {"to": "nucleus", "emit": "r", "weight": 1},
+            {"to": "nucleus", "emit": "l", "weight": 1},
+            {"to": "nucleus", "emit": "j", "weight": 1},
+            {"to": "nucleus", "emit": "", "weight": 1}
         ],
         "nucleus": [
-            {"to": "coda", "emit": "i", "weight": 0.19},
-            {"to": "coda", "emit": "o", "weight": 0.15},
-            {"to": "coda", "emit": "e", "weight": 0.16},
-            {"to": "coda", "emit": "a", "weight": 0.17},
-            {"to": "coda", "emit": "oi", "weight": 0.05},
-            {"to": "coda", "emit": "ei", "weight": 0.07},
-            {"to": "coda", "emit": "au", "weight": 0.08},
-            {"to": "coda", "emit": "eu", "weight": 0.04},
-            {"to": "coda", "emit": "ai", "weight": 0.09}
+            {"to": "coda", "emit": "a", "weight": 1},
+            {"to": "coda", "emit": "aa", "weight": 1},
+            {"to": "coda", "emit": "1", "weight": 1},
+            {"to": "coda", "emit": "11", "weight": 1},
+            {"to": "coda", "emit": "@", "weight": 1},
+            {"to": "coda", "emit": "@@", "weight": 1}
         ],
+        "coda": [
+            {"to": "boundary", "emit": "", "weight": 1}
+        ],
+        "boundary": [
+            {"to": "onset", "emit": "", "weight": 0.8, "add": -0.4},
+            {"to": null, "emit": "", "weight": 0.2, "add": 0.4}
+        ]
+    },
+    "transliteration": [
+        {
+            "map": {
+                "K": "lh",
+                "K\\": "lz",
+                "tS": "ch",
+                "dZ": "j",
+                "S": "sh",
+                "Z": "zh",
+                "j": "y",
+                "x": "kh",
+                "G": "gh",
+                "G\\": "g'",
+                "X": "qh",
+                "R": "g'h",
+                "?": "'",
+                "_>": "'",
+                "1": "i",
+                "@": "e"
+            }
+        }
+    ]
+}

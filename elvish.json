@@ -136,19 +136,17 @@
             ]
         }
     ],
-    "transliteration": {
-        "rules": [
-            {"map": {"SS": "ssh", "TT": "tth"}},
-            {
-                "map": {
-                    "S": "sh",
-                    "T": "th",
-                    "k": "c",
-                    "j": "y",
-                    "z": "s",
-                    "x": "h"
-                }
+    "transliteration": [
+        {"map": {"SS": "ssh", "TT": "tth"}},
+        {
+            "map": {
+                "S": "sh",
+                "T": "th",
+                "k": "c",
+                "j": "y",
+                "z": "s",
+                "x": "h"
             }
-        ]
-    }
+        }
+    ]
 }

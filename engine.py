@@ -16,11 +16,12 @@ class Engine:
         else:
             words = self._args.words
         for word in words:
-            for change in self._config['changes']:
-                word = transform(word, change)
-                if self._args.verbose:
-                    print '%s: %s' % (change['name'], self._format(word))
-            if not self._args.verbose:
+            if 'changes' in self._config:
+                for change in self._config['changes']:
+                    word = transform(word, change)
+                    if self._args.verbose:
+                        print '%s: %s' % (change['name'], self._format(word))
+            if 'changes' not in self._config or not self._args.verbose:
                 print self._format(word)
             else:
                 print
@@ -55,9 +56,12 @@ class Engine:
         return sum(transition['weight'] for transition in state)
         
     def _format(self, word):
-        transliteration = self._config['transliteration']
-        transliterated = transform(word, transliteration)
+        transliteration = self._config.get('transliteration')
+        if transliteration is not None:
+            transliterated = transform(word, {"rules": transliteration})
+        else:
+            transliterated = word
         if self._args.phonetic:
-            return '%s [%s]' %  (transliterated, word)
-        return transliterated
+            return ('%s [%s]' %  (transliterated, word)).encode('utf-8')
+        return transliterated.encode('utf-8')
         

@@ -1,6 +1,5 @@
 {
     "start": "start",
-    "boundary": "boundary",
     "states": {   
         "start": [
             {"to": "onset", "emit": "", "weight": 0.9},
@@ -54,175 +53,102 @@
             "name": "Classical Elvish",
             "rules": [
                 {
-                    "from": ["d", "b", "g", "x"],
-                    "to": ["t", "p", "k", "k"],
-                    "after": ["t", "p", "k"]
+                    "map": {"d": "t", "b": "p", "g": "k", "x": "k"},
+                    "after": "[tpk]"
                 },
-                {
-                    "from": ["n"],
-                    "to": ["m"],
-                    "before": ["m", "f", "p", "b"]
-                },
-                {
-                    "from": ["t"],
-                    "to": ["$"],
-                    "before": ["p", "k"]
-                },
-                {
-                    "from": ["j"], 
-                    "to": [""],
-                    "after": ["^"],
-                    "before": ["i"]
-                    
-                }
+                {"map": {"n": "m"}, "before": "[mfpb]"},
+                {"map": {"t": "\\1"}, "before": "([pk])"},
+                {"map": {"j": ""}, "where": "^_i"}
             ]
         },
         {
             "name": "diphthong raising",
-            "rules": [
-                {"from": ["oi"], "to": ["ui"]},
-                {"from": ["eu"], "to": ["iu"]}
-            ]
+            "rules": [{"map": {"oi": "ui"}}, {"map": {"eu": "iu"}}]
         },
         {
             "name": "palatalization",
             "rules": [
-                {
-                    "from": ["t", "d"],
-                    "to": ["T", "D"],
-                    "before": ["i", "j"]
-                },
-                {
-                    "from": ["x", "k", "g"],
-                    "to": ["S", "S", "Z"],
-                    "before": ["i", "e", "j"]
-                },
-                {
-                    "from": ["k"],
-                    "to": ["S"],
-                    "before": ["S"]
-                },
-                {
-                    "from": ["t"],
-                    "to": ["T"],
-                    "before": ["T"]
-                },
-                {
-                    "from": ["s", "z"],
-                    "to": ["$", "$"],
-                    "before": ["S", "Z", "T", "D"]
-                }
+                {"map": {"t": "T", "d": "D"}, "before": "[ij]"},
+                {"map": {"x": "S", "k": "S", "g": "Z"}, "before": "[iej]"},
+                {"map": {"k": "S"}, "before": "S"},
+                {"map": {"t": "T"}, "before": "T"},
+                {"map": {"s": "\\1", "z": "\\1"}, "before": "([SZTD])"}
             ]
         },
         {
             "name": "monophthongization",
             "rules": [
-                {"from": ["o"], "to": ["u"]},
-                {"from": ["ui"], "to": ["i"]},
-                {"from": ["ei"], "to": ["i"]},
-                {"from": ["au"], "to": ["o"]},
-                {"from": ["iu"], "to": ["u"]},
-                {"from": ["ai"], "to": ["e"]}
+                {
+                    "map": {
+                        "o": "u",
+                        "ui": "i",
+                        "ei": "i",
+                        "au": "o",
+                        "iu": "u",
+                        "ai": "e"
+                    }
+                }
             ]
         },
         {
             "name": "x deletion",
             "rules":  [
-                {"from": ["x"], "to": ["k"], "after": ["n", "m", "s", "r", "l"]},
-                {"from": ["x"], "to": [""]}
+                {"map": {"x": "k"}, "after": "[nmsrl]"},
+                {"map": {"x": ""}}
             ]
         },
         {
             "name": "diphthongization",
             "rules": [
-                {
-                    "from": ["ii", "uu", "ee", "oo", "aa"],
-                    "to": ["i", "u", "e", "o", "a"]
-                },
-                {
-                    "from": ["i", "u"],
-                    "to": ["j", "w"],
-                    "before": ["i", "u", "e", "o", "a"]
-                },
-                {
-                    "from": ["i", "u"],
-                    "to": ["j", "w"],
-                    "after": ["i", "u", "e", "o", "a"]
-                },
-                
-                {
-                    "from": ["e", "o"],
-                    "to": ["j", "w"],
-                    "before": ["i", "u", "e", "o", "a"]
-                },
-                {
-                    "from": ["e", "o"],
-                    "to": ["j", "w"],
-                    "after": ["i", "u", "e", "o", "a"]
-                },
-                {
-                    "from": ["jj", "jjj", "ww", "www"],
-                    "to": ["j", "j", "w", "w"]
-                }
+                {"from": "([iueoa])\\1", "to": "\\1"},
+                {"map": {"i": "j", "u": "w"}, "before": "[iueoa]"},
+                {"map": {"i": "j", "u": "w"}, "after": "[iueoa]"},
+                {"map": {"e": "j", "o": "w"}, "before": "[iueoa]"},
+                {"map": {"e": "j", "o": "w"}, "after": "[iueoa]"},
+                {"from": "([jw])\\1{1,2}", "to": "\\1"}
             ]
         },
         {
             "name": "yod coalescence",
-            "rules": [
-                {"from": ["Sj", "Zj", "Tj", "Dj"], "to": ["S", "Z", "T", "D"]}
-            ]
+            "rules": [{"map": {"Sj": "S", "Zj": "Z", "Tj": "T", "Dj": "D"}}]
         },
         {
             "name": "fricative voicing",
-            "rules": [
-                {
-                    "from": ["s"],
-                    "to": ["z"],
-                    "before": ["n", "m", "d", "b", "g", "l", "r"]}
-            ]
+            "rules": [{"map": {"s": "z"}, "before": "[nmdbglr]"}]
         },
         {
             "name": "fricative lenition",
             "rules": [
-                {"from": ["z", "Z", "D"], "to": ["r", "j", "r"]},
-                {"from": ["jj"], "to": ["j"]},
-                {
-                    "from": ["j"], 
-                    "to": [""],
-                    "after": ["^"],
-                    "before": ["i"]
-                    
-                }
+                {"map": {"z": "r", "Z": "j", "D": "r"}},
+                {"map": {"jj": "j"}},
+                {"map": {"j": ""}, "where": "^_i"}
             ]
         },
         {
             "name": "stop voicing",
-            "rules": [
-                {
-                    "from": ["t", "k"],
-                    "to": ["d", "g"],
-                    "before": ["n", "m", "r", "l"]
-                }
-            ]
+            "rules": [{"map": {"t": "d", "k": "g"}, "before": "[nmrl]"}]
         },
         {
             "name": "w fortition",
             "rules": [
-                {
-                    "from": ["w"],
-                    "to": ["f"],
-                    "before": ["s", "S", "f", "t", "T", "p", "k"]
-                },
-                {"from": ["w"], "to": ["v"]}
+                {"map": {"w": "f"}, "before": "[sSftTpk]"},
+                {"map": {"w": "v"}}
             ]
         }
     ],
     "transliteration": {
         "rules": [
-            {"from": ["SS", "TT"], "to": ["ssh", "tth"]},
+            {"map": {"SS": "ssh", "TT": "tth"}},
             {
-                "from": ["S", "T", "k", "j", "z", "x"],
-                "to": ["sh", "th", "c", "y", "s", "h"]}
+                "map": {
+                    "S": "sh",
+                    "T": "th",
+                    "k": "c",
+                    "j": "y",
+                    "z": "s",
+                    "x": "h"
+                }
+            }
         ]
     }
 }

@@ -2,18 +2,24 @@ from re import sub
 
 def transform(word, transform):
     for rule in transform['rules']:
-        target = '(?:%s)' % _join(rule['from'])
-        after = '(?<=(%s))' % _join(rule['after']) if 'after' in rule else '()'
-        before = '(?=(%s))' % _join(rule['before']) if 'before' in rule else '()'
-        pattern = after + target + before
-        mapping = {key: value for key, value in zip(rule['from'], rule['to'])}
-        word = sub(pattern, lambda match: _sub(match, mapping), word)
+        if 'map' in rule:
+            target = '(?:%s)' % '|'.join(key for key in rule['map'])
+        else:
+            target = rule['from']
+        if 'where' in rule:
+            after, before = rule['where'].split('_')
+        else:
+            after = rule['after'] if 'after' in rule else ''
+            before = rule['before'] if 'before' in rule else ''
+        pattern = ('(?<=%s)' % after) + target + ('(?=%s)' % before)
+        if 'map' in rule:
+            word = sub(pattern, lambda match: _map(match, rule['map']), word)
+        else:
+            word = sub(pattern, rule['to'], word)
     return word
-
-def _join(phones):
-    return '|'.join(phone for phone in phones)
     
-def _sub(match, mapping):
-    to = mapping[match.string[match.start():match.end()]]
-    return to.replace('^', match.group(1)).replace('$', match.group(2))
+def _map(match, map):
+    to = map[match.string[match.start():match.end()]]
+    return sub(r'\\(\d)', lambda m: match.group(int(m.group(1))), to)
+    
     

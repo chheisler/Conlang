@@ -2,17 +2,10 @@ from util import keydefaultdict
 from json import load
 from collections import defaultdict
 from random import random
-from argparse import ArgumentParser
 from transform import transform
 
 class Engine:
-    def __init__(self):
-        parser = ArgumentParser()
-        parser.add_argument('name')
-        parser.add_argument('--verbose', '-v', action='store_true')
-        parser.add_argument('--repeat', '-r', type=int, default=1)
-        parser.add_argument('--phonetic', '-p', action='store_true')
-        parser.add_argument('--words', '-w', nargs='+')
+    def __init__(self, parser):
         self._args = parser.parse_args()
         self._config = load(open(self._args.name + '.json'))
         self._scales = keydefaultdict(self._scale)
@@ -52,7 +45,10 @@ class Engine:
                     break;
             visits[name] += 1
             name = next_name
-        return ''.join(output)
+        output = ''.join(output)
+        if self._args.raw:
+            print 'raw: %s' % self._format(output)
+        return output
         
     def _scale(self, key):
         state = self._config['states'][key]

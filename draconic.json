@@ -83,7 +83,43 @@
             {"to": "coda", "emit": "@@", "weight": 1}
         ],
         "coda": [
-            {"to": "boundary", "emit": "", "weight": 1}
+            {"to": "boundary", "emit": "", "weight": 1},
+            {"to": "n-coda", "emit": "n", "weight": 1},
+            {"to": "t-coda", "emit": "", "weight": 1}
+        ],
+        "n-coda": [
+            {"to": "t-coda", "emit": "", "weight": 1}
+        ],
+        "t-coda": [
+            {"to": "boundary", "emit": "t", "weight": 1},
+            {"to": "boundary", "emit": "d", "weight": 1},
+            {"to": "boundary", "emit": "t_>", "weight": 1},
+            {"to": "boundary", "emit": "ts", "weight": 1},
+            {"to": "boundary", "emit": "dz", "weight": 1},
+            {"to": "boundary", "emit": "ts_>", "weight": 1},
+            {"to": "boundary", "emit": "s", "weight": 1},
+            {"to": "boundary", "emit": "z", "weight": 1},
+            {"to": "boundary", "emit": "s_>", "weight": 1},
+            {"to": "boundary", "emit": "tS", "weight": 1},
+            {"to": "boundary", "emit": "dZ", "weight": 1},
+            {"to": "boundary", "emit": "tS_>", "weight": 1},
+            {"to": "boundary", "emit": "S", "weight": 1},
+            {"to": "boundary", "emit": "Z", "weight": 1},
+            {"to": "boundary", "emit": "S_>", "weight": 1},
+            {"to": "boundary", "emit": "k", "weight": 1},
+            {"to": "boundary", "emit": "g", "weight": 1},
+            {"to": "boundary", "emit": "k_>", "weight": 1},
+            {"to": "boundary", "emit": "x", "weight": 1},
+            {"to": "boundary", "emit": "G", "weight": 1},
+            {"to": "boundary", "emit": "x_>", "weight": 1},
+            {"to": "boundary", "emit": "q", "weight": 1},
+            {"to": "boundary", "emit": "G\\", "weight": 1},
+            {"to": "boundary", "emit": "q_>", "weight": 1},
+            {"to": "boundary", "emit": "X", "weight": 1},
+            {"to": "boundary", "emit": "R", "weight": 1},
+            {"to": "boundary", "emit": "X_>", "weight": 1},
+            {"to": "boundary", "emit": "?", "weight": 1},
+            {"to": "boundary", "emit": "h", "weight": 1}
         ],
         "boundary": [
             {"to": "onset", "emit": "", "weight": 0.8, "add": -0.4},
@@ -93,6 +129,8 @@
     "transliteration": [
         {
             "map": {
+                "tK": "tl",
+                "dK\\": "dl",
                 "K": "lh",
                 "K\\": "lz",
                 "tS": "ch",

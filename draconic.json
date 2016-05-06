@@ -13,12 +13,12 @@
             {"to": "s-onset", "emit": "z", "weight": 1},
             {"to": "s-onset", "emit": "s_>", "weight": 1},
             {"to": "r-onset", "emit": "r", "weight": 1},
-            {"to": "l-onset", "emit": "tK", "weight": 1},
-            {"to": "l-onset", "emit": "dK\\", "weight": 1},
-            {"to": "l-onset", "emit": "tl_>", "weight": 1},
-            {"to": "l-onset", "emit": "K", "weight": 1},
-            {"to": "l-onset", "emit": "K\\", "weight": 1},
-            {"to": "l-onset", "emit": "K_>", "weight": 1},
+            {"to": "tl-onset", "emit": "tK", "weight": 1},
+            {"to": "tl-onset", "emit": "dK\\", "weight": 1},
+            {"to": "tl-onset", "emit": "tl_>", "weight": 1},
+            {"to": "tl-onset", "emit": "K", "weight": 1},
+            {"to": "tl-onset", "emit": "K\\", "weight": 1},
+            {"to": "tl-onset", "emit": "K_>", "weight": 1},
             {"to": "r-onset", "emit": "l", "weight": 1},
             {"to": "h-onset", "emit": "tS", "weight": 1},
             {"to": "h-onset", "emit": "dZ", "weight": 1},
@@ -62,7 +62,7 @@
             {"to": "nucleus", "emit": "j", "weight": 1},
             {"to": "nucleus", "emit": "", "weight": 1}
         ],
-        "l-onset": [
+        "tl-onset": [
             {"to": "nucleus", "emit": "n", "weight": 1},
             {"to": "nucleus", "emit": "j", "weight": 1},
             {"to": "nucleus", "emit": "", "weight": 1}
@@ -85,10 +85,36 @@
         "coda": [
             {"to": "boundary", "emit": "", "weight": 1},
             {"to": "n-coda", "emit": "n", "weight": 1},
-            {"to": "t-coda", "emit": "", "weight": 1}
+            {"to": "r-coda", "emit": "r", "weight": 1},
+            {"to": "l-coda", "emit": "l", "weight": 1},
+            {"to": "y-coda", "emit": "j", "weight": 1},
+            {"to": "t-coda", "emit": "", "weight": 1},
+            {"to": "tl-coda", "emit": "", "weight": 1},
+            {"to": "boundary", "emit": "n", "weight": 1},
+            {"to": "boundary", "emit": "r", "weight": 1},
+            {"to": "boundary", "emit": "l", "weight": 1},
+            {"to": "boundary", "emit": "j", "weight": 1}
         ],
         "n-coda": [
-            {"to": "t-coda", "emit": "", "weight": 1}
+            {"to": "t-coda", "emit": "", "weight": 1},
+            {"to": "tl-coda", "emit": "", "weight": 1}
+        ],
+        "r-coda": [
+            {"to": "t-coda", "emit": "", "weight": 1},
+            {"to": "tl-coda", "emit": "", "weight": 1},
+            {"to": "boundary", "emit": "n", "weight": 1},
+            {"to": "boundary", "emit": "l", "weight": 1}
+        ],
+        "l-coda": [
+            {"to": "t-coda", "emit": "", "weight": 1},
+            {"to": "boundary", "emit": "n", "weight": 1}
+        ],
+        "y-coda": [
+            {"to": "t-coda", "emit": "", "weight": 1},
+            {"to": "tl-coda", "emit": "", "weight": 1},
+            {"to": "boundary", "emit": "n", "weight": 1},
+            {"to": "boundary", "emit": "r", "weight": 1},
+            {"to": "boundary", "emit": "l", "weight": 1}
         ],
         "t-coda": [
             {"to": "boundary", "emit": "t", "weight": 1},
@@ -120,6 +146,14 @@
             {"to": "boundary", "emit": "X_>", "weight": 1},
             {"to": "boundary", "emit": "?", "weight": 1},
             {"to": "boundary", "emit": "h", "weight": 1}
+        ],
+        "tl-coda": [
+            {"to": "boundary", "emit": "tK", "weight": 1},
+            {"to": "boundary", "emit": "dK\\", "weight": 1},
+            {"to": "boundary", "emit": "tK_>", "weight": 1},
+            {"to": "boundary", "emit": "K", "weight": 1},
+            {"to": "boundary", "emit": "K\\", "weight": 1},
+            {"to": "boundary", "emit": "K_>", "weight": 1}
         ],
         "boundary": [
             {"to": "onset", "emit": "", "weight": 0.8, "add": -0.4},

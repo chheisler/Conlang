@@ -2,171 +2,272 @@
     "start": "onset",
     "states": {
         "onset": [
-            {"to": "n-onset", "emit": "n", "weight": 1},
-            {"to": "t-onset", "emit": "t", "weight": 1},
-            {"to": "t-onset", "emit": "d", "weight": 1},
-            {"to": "t-onset", "emit": "t_>", "weight": 1},
-            {"to": "s-onset", "emit": "ts", "weight": 1},
-            {"to": "s-onset", "emit": "dz", "weight": 1},
-            {"to": "s-onset", "emit": "ts_>", "weight": 1},
-            {"to": "s-onset", "emit": "s", "weight": 1},
-            {"to": "s-onset", "emit": "z", "weight": 1},
-            {"to": "s-onset", "emit": "s_>", "weight": 1},
-            {"to": "r-onset", "emit": "r", "weight": 1},
-            {"to": "tl-onset", "emit": "tK", "weight": 1},
-            {"to": "tl-onset", "emit": "dK\\", "weight": 1},
-            {"to": "tl-onset", "emit": "tl_>", "weight": 1},
-            {"to": "tl-onset", "emit": "K", "weight": 1},
-            {"to": "tl-onset", "emit": "K\\", "weight": 1},
-            {"to": "tl-onset", "emit": "K_>", "weight": 1},
-            {"to": "r-onset", "emit": "l", "weight": 1},
-            {"to": "h-onset", "emit": "tS", "weight": 1},
-            {"to": "h-onset", "emit": "dZ", "weight": 1},
-            {"to": "h-onset", "emit": "tS_>", "weight": 1},
-            {"to": "h-onset", "emit": "S", "weight": 1},
-            {"to": "h-onset", "emit": "Z", "weight": 1},
-            {"to": "h-onset", "emit": "S_>", "weight": 1},
-            {"to": "h-onset", "emit": "k", "weight": 1},
-            {"to": "h-onset", "emit": "g", "weight": 1},
-            {"to": "h-onset", "emit": "k_>", "weight": 1},
-            {"to": "h-onset", "emit": "x", "weight": 1},
-            {"to": "h-onset", "emit": "G", "weight": 1},
-            {"to": "h-onset", "emit": "x_>", "weight": 1},
-            {"to": "h-onset", "emit": "q", "weight": 1},
-            {"to": "h-onset", "emit": "G\\", "weight": 1},
-            {"to": "h-onset", "emit": "q_>", "weight": 1},
-            {"to": "h-onset", "emit": "X", "weight": 1},
-            {"to": "h-onset", "emit": "R", "weight": 1},
-            {"to": "h-onset", "emit": "X_>", "weight": 1},
-            {"to": "h-onset", "emit": "?", "weight": 1},
-            {"to": "h-onset", "emit": "h", "weight": 1},
-            {"to": "nucleus", "emit": "j", "weight": 1}
+            {"to": "n-onset", "emit": "n", "weight": 20},
+            {"to": "t-onset", "emit": "t", "weight": 20},
+            {"to": "t-onset", "emit": "d", "weight": 15},
+            {"to": "t-onset", "emit": "t'", "weight": 10},
+            {"to": "s-onset", "emit": "ts", "weight": 16},
+            {"to": "s-onset", "emit": "dz", "weight": 12},
+            {"to": "s-onset", "emit": "ts'", "weight": 8},
+            {"to": "s-onset", "emit": "s", "weight": 17},
+            {"to": "s-onset", "emit": "z", "weight": 11},
+            {"to": "s-onset", "emit": "s'", "weight": 6},
+            {"to": "r-onset", "emit": "r", "weight": 17},
+            {"to": "tl-onset", "emit": "tK", "weight": 6},
+            {"to": "tl-onset", "emit": "dL", "weight": 4},
+            {"to": "tl-onset", "emit": "tl'", "weight": 3},
+            {"to": "tl-onset", "emit": "K", "weight": 7},
+            {"to": "tl-onset", "emit": "L", "weight": 5},
+            {"to": "tl-onset", "emit": "K'", "weight": 4},
+            {"to": "r-onset", "emit": "l", "weight": 19},
+            {"to": "h-onset", "emit": "tS", "weight": 13},
+            {"to": "h-onset", "emit": "dZ", "weight": 10},
+            {"to": "h-onset", "emit": "tS'", "weight": 8},
+            {"to": "h-onset", "emit": "S", "weight": 14},
+            {"to": "h-onset", "emit": "Z", "weight": 11},
+            {"to": "h-onset", "emit": "S'", "weight": 9},
+            {"to": "h-onset", "emit": "k", "weight": 18},
+            {"to": "h-onset", "emit": "g", "weight": 14},
+            {"to": "h-onset", "emit": "k'", "weight": 9},
+            {"to": "h-onset", "emit": "x", "weight": 8},
+            {"to": "h-onset", "emit": "G", "weight": 6},
+            {"to": "h-onset", "emit": "x'", "weight": 4},
+            {"to": "h-onset", "emit": "q", "weight": 9},
+            {"to": "h-onset", "emit": "Q", "weight": 4},
+            {"to": "h-onset", "emit": "q'", "weight": 8},
+            {"to": "h-onset", "emit": "X", "weight": 7},
+            {"to": "h-onset", "emit": "R", "weight": 5},
+            {"to": "h-onset", "emit": "X'", "weight": 6},
+            {"to": "h-onset", "emit": "7", "weight": 11},
+            {"to": "h-onset", "emit": "h", "weight": 12},
+            {"to": "nucleus", "emit": "j", "weight": 10}
         ],
         "n-onset": [
-            {"to": "nucleus", "emit": "r", "weight": 1},
-            {"to": "nucleus", "emit": "l", "weight": 1},
-            {"to": "nucleus", "emit": "j", "weight": 1},
-            {"to": "nucleus", "emit": "", "weight": 1}
+            {"to": "nucleus", "emit": "r", "weight": 2},
+            {"to": "nucleus", "emit": "l", "weight": 2},
+            {"to": "nucleus", "emit": "j", "weight": 3},
+            {"to": "nucleus", "emit": "", "weight": 20}
         ],
         "t-onset": [
-            {"to": "nucleus", "emit": "r", "weight": 1},
-            {"to": "nucleus", "emit": "", "weight": 1}
+            {"to": "nucleus", "emit": "r", "weight": 2},
+            {"to": "nucleus", "emit": "", "weight": 20}
         ],
         "s-onset": [
-            {"to": "nucleus", "emit": "n", "weight": 1},
-            {"to": "nucleus", "emit": "r", "weight": 1},
-            {"to": "nucleus", "emit": "l", "weight": 1},
-            {"to": "nucleus", "emit": "", "weight": 1}
+            {"to": "nucleus", "emit": "n", "weight": 3},
+            {"to": "nucleus", "emit": "r", "weight": 2},
+            {"to": "nucleus", "emit": "l", "weight": 2},
+            {"to": "nucleus", "emit": "", "weight": 20}
         ],
         "r-onset": [
             {"to": "nucleus", "emit": "j", "weight": 1},
-            {"to": "nucleus", "emit": "", "weight": 1}
+            {"to": "nucleus", "emit": "", "weight": 20}
         ],
         "tl-onset": [
             {"to": "nucleus", "emit": "n", "weight": 1},
-            {"to": "nucleus", "emit": "j", "weight": 1},
-            {"to": "nucleus", "emit": "", "weight": 1}
+            {"to": "nucleus", "emit": "j", "weight": 2},
+            {"to": "nucleus", "emit": "", "weight": 20}
         ],
         "h-onset": [
             {"to": "nucleus", "emit": "n", "weight": 1},
             {"to": "nucleus", "emit": "r", "weight": 1},
             {"to": "nucleus", "emit": "l", "weight": 1},
-            {"to": "nucleus", "emit": "j", "weight": 1},
-            {"to": "nucleus", "emit": "", "weight": 1}
+            {"to": "nucleus", "emit": "j", "weight": 2},
+            {"to": "nucleus", "emit": "", "weight": 20}
         ],
         "nucleus": [
-            {"to": "coda", "emit": "a", "weight": 1},
-            {"to": "coda", "emit": "aa", "weight": 1},
-            {"to": "coda", "emit": "1", "weight": 1},
-            {"to": "coda", "emit": "11", "weight": 1},
-            {"to": "coda", "emit": "@", "weight": 1},
-            {"to": "coda", "emit": "@@", "weight": 1}
+            {"to": "coda", "emit": "a", "weight": 20},
+            {"to": "coda", "emit": "aa", "weight": 11},
+            {"to": "coda", "emit": "i", "weight": 15},
+            {"to": "coda", "emit": "ii", "weight": 9},
+            {"to": "coda", "emit": "e", "weight": 13},
+            {"to": "coda", "emit": "ee", "weight": 8}
         ],
         "coda": [
-            {"to": "boundary", "emit": "", "weight": 1},
+            {"to": "boundary", "emit": "", "weight": 30},
             {"to": "n-coda", "emit": "n", "weight": 1},
             {"to": "r-coda", "emit": "r", "weight": 1},
             {"to": "l-coda", "emit": "l", "weight": 1},
-            {"to": "y-coda", "emit": "j", "weight": 1},
-            {"to": "t-coda", "emit": "", "weight": 1},
-            {"to": "tl-coda", "emit": "", "weight": 1},
-            {"to": "boundary", "emit": "n", "weight": 1},
-            {"to": "boundary", "emit": "r", "weight": 1},
-            {"to": "boundary", "emit": "l", "weight": 1},
-            {"to": "boundary", "emit": "j", "weight": 1}
+            {"to": "y-coda", "emit": "j", "weight": 2},
+            {"to": "t-coda", "emit": "", "weight": 50},
+            {"to": "tl-coda", "emit": "", "weight": 2},
+            {"to": "boundary", "emit": "n", "weight": 3},
+            {"to": "boundary", "emit": "r", "weight": 2},
+            {"to": "boundary", "emit": "l", "weight": 2},
+            {"to": "boundary", "emit": "j", "weight": 4}
         ],
         "n-coda": [
-            {"to": "t-coda", "emit": "", "weight": 1},
+            {"to": "t-coda", "emit": "", "weight": 10},
             {"to": "tl-coda", "emit": "", "weight": 1}
         ],
         "r-coda": [
-            {"to": "t-coda", "emit": "", "weight": 1},
+            {"to": "t-coda", "emit": "", "weight": 10},
             {"to": "tl-coda", "emit": "", "weight": 1},
-            {"to": "boundary", "emit": "n", "weight": 1},
+            {"to": "boundary", "emit": "n", "weight": 2},
             {"to": "boundary", "emit": "l", "weight": 1}
         ],
         "l-coda": [
-            {"to": "t-coda", "emit": "", "weight": 1},
-            {"to": "boundary", "emit": "n", "weight": 1}
+            {"to": "t-coda", "emit": "", "weight": 15},
+            {"to": "boundary", "emit": "n", "weight": 2}
         ],
         "y-coda": [
-            {"to": "t-coda", "emit": "", "weight": 1},
+            {"to": "t-coda", "emit": "", "weight": 10},
             {"to": "tl-coda", "emit": "", "weight": 1},
-            {"to": "boundary", "emit": "n", "weight": 1},
+            {"to": "boundary", "emit": "n", "weight": 2},
             {"to": "boundary", "emit": "r", "weight": 1},
             {"to": "boundary", "emit": "l", "weight": 1}
         ],
         "t-coda": [
-            {"to": "boundary", "emit": "t", "weight": 1},
-            {"to": "boundary", "emit": "d", "weight": 1},
-            {"to": "boundary", "emit": "t_>", "weight": 1},
-            {"to": "boundary", "emit": "ts", "weight": 1},
-            {"to": "boundary", "emit": "dz", "weight": 1},
-            {"to": "boundary", "emit": "ts_>", "weight": 1},
-            {"to": "boundary", "emit": "s", "weight": 1},
-            {"to": "boundary", "emit": "z", "weight": 1},
-            {"to": "boundary", "emit": "s_>", "weight": 1},
-            {"to": "boundary", "emit": "tS", "weight": 1},
-            {"to": "boundary", "emit": "dZ", "weight": 1},
-            {"to": "boundary", "emit": "tS_>", "weight": 1},
-            {"to": "boundary", "emit": "S", "weight": 1},
-            {"to": "boundary", "emit": "Z", "weight": 1},
-            {"to": "boundary", "emit": "S_>", "weight": 1},
-            {"to": "boundary", "emit": "k", "weight": 1},
-            {"to": "boundary", "emit": "g", "weight": 1},
-            {"to": "boundary", "emit": "k_>", "weight": 1},
-            {"to": "boundary", "emit": "x", "weight": 1},
-            {"to": "boundary", "emit": "G", "weight": 1},
-            {"to": "boundary", "emit": "x_>", "weight": 1},
-            {"to": "boundary", "emit": "q", "weight": 1},
-            {"to": "boundary", "emit": "G\\", "weight": 1},
-            {"to": "boundary", "emit": "q_>", "weight": 1},
-            {"to": "boundary", "emit": "X", "weight": 1},
-            {"to": "boundary", "emit": "R", "weight": 1},
-            {"to": "boundary", "emit": "X_>", "weight": 1},
-            {"to": "boundary", "emit": "?", "weight": 1},
-            {"to": "boundary", "emit": "h", "weight": 1}
+            {"to": "boundary", "emit": "t", "weight": 20},
+            {"to": "boundary", "emit": "d", "weight": 15},
+            {"to": "boundary", "emit": "t'", "weight": 10},
+            {"to": "boundary", "emit": "ts", "weight": 16},
+            {"to": "boundary", "emit": "dz", "weight": 12},
+            {"to": "boundary", "emit": "ts'", "weight": 8},
+            {"to": "boundary", "emit": "s", "weight": 17},
+            {"to": "boundary", "emit": "z", "weight": 11},
+            {"to": "boundary", "emit": "s'", "weight": 6},
+            {"to": "boundary", "emit": "tS", "weight": 13},
+            {"to": "boundary", "emit": "dZ", "weight": 10},
+            {"to": "boundary", "emit": "tS'", "weight": 8},
+            {"to": "boundary", "emit": "S", "weight": 14},
+            {"to": "boundary", "emit": "Z", "weight": 11},
+            {"to": "boundary", "emit": "S'", "weight": 9},
+            {"to": "h-onset", "emit": "k", "weight": 18},
+            {"to": "h-onset", "emit": "g", "weight": 14},
+            {"to": "h-onset", "emit": "k'", "weight": 9},
+            {"to": "h-onset", "emit": "x", "weight": 8},
+            {"to": "h-onset", "emit": "G", "weight": 6},
+            {"to": "h-onset", "emit": "x'", "weight": 4},
+            {"to": "h-onset", "emit": "q", "weight": 9},
+            {"to": "h-onset", "emit": "Q", "weight": 4},
+            {"to": "h-onset", "emit": "q'", "weight": 8},
+            {"to": "h-onset", "emit": "X", "weight": 7},
+            {"to": "h-onset", "emit": "R", "weight": 5},
+            {"to": "h-onset", "emit": "X'", "weight": 6},
+            {"to": "h-onset", "emit": "7", "weight": 11},
+            {"to": "h-onset", "emit": "h", "weight": 12}
         ],
         "tl-coda": [
-            {"to": "boundary", "emit": "tK", "weight": 1},
-            {"to": "boundary", "emit": "dK\\", "weight": 1},
-            {"to": "boundary", "emit": "tK_>", "weight": 1},
-            {"to": "boundary", "emit": "K", "weight": 1},
-            {"to": "boundary", "emit": "K\\", "weight": 1},
-            {"to": "boundary", "emit": "K_>", "weight": 1}
+            {"to": "tl-onset", "emit": "tK", "weight": 6},
+            {"to": "tl-onset", "emit": "dL", "weight": 4},
+            {"to": "tl-onset", "emit": "tl'", "weight": 3},
+            {"to": "tl-onset", "emit": "K", "weight": 7},
+            {"to": "tl-onset", "emit": "L", "weight": 5},
+            {"to": "tl-onset", "emit": "K'", "weight": 4}
         ],
         "boundary": [
             {"to": "onset", "emit": "", "weight": 0.8, "add": -0.4},
             {"to": null, "emit": "", "weight": 0.2, "add": 0.4}
         ]
     },
+    "changes": [
+        {
+            "name": "glottal deletion",
+            "rules": [
+                {
+                    "map": {"7": "", "h": ""},
+                    "after": "[tdszKLkgxGqQXR']"
+                }
+            ]
+        },
+        {
+            "name": "voicing assimilation",
+            "rules": [
+                {
+                    "map": {"'": ""},
+                    "before": "(?:t[sSK]?|[sKSkxqX])(?!')"
+                },
+                {
+                    "map": {"'": ""},
+                    "before": "(?:d[zZL]?|[zLZgGQR])"
+                },
+                {
+                    "map": {
+                        "d": "t",
+                        "dz": "ts",
+                        "z": "s",
+                        "dL": "tK",
+                        "L": "K",
+                        "dZ": "tS",
+                        "Z": "S",
+                        "g": "k",
+                        "G": "x",
+                        "Q": "q",
+                        "R": "X"
+                    },
+                    "before": "[tsKSkxqXh7]"
+                },
+                {
+                    "map": {
+                        "t": "d",
+                        "ts": "dz",
+                        "s": "z",
+                        "tK": "dL",
+                        "K": "L",
+                        "tS": "dZ",
+                        "S": "Z",
+                        "k": "g",
+                        "x": "G",
+                        "q": "Q",
+                        "X": "R"
+                    },
+                    "before": "[dzLZgGQR]"
+                },
+                {
+                    "map": {"": "'"},
+                    "after": "(?:t(?![sSK])|[sKSkxqX])",
+                    "before": "(?:t[sSK]?|[sKSkxqX])'"
+                }
+            ]
+        },
+        {
+            "name": "coronal assimilation",
+            "rules": [
+                {"map": {"'": ""}, "where": "t[sSK]_[td]"},
+                {"from": "[szSZKL]", "to": "", "where": "[td]_[td]"},
+                {"from": "[szSZKL]", "to": "\\1", "before": "([szSZKL])"}
+            ]
+        },
+        {
+            "name": "dorsal assimilation",
+            "rules": [
+                {
+                    "map": {"k": "q", "g": "Q", "x": "X", "G": "R"},
+                    "before": "'?[qQXR]"
+                },
+                {
+                    "map": {"q": "k", "Q": "g", "X": "x", "R": "G"},
+                    "before": "'?[kgxG]"
+                }
+            ]
+        },
+        {
+            "name": "degemination",
+            "rules": [
+                {"from": "([^aie])\\1", "to": "\\1"}
+            ]
+        },
+        {
+            "name": "cluster disassimilation",
+            "rules": [
+                {"from": "([rlj])([aie]{1,2})\\1(?![aie])", "to": "\\1\\2"}
+            ]
+        }
+    ],
     "transliteration": [
         {
+            "map": {"'": ""},
+            "after": "[tsKSkxqX]",
+            "before": "(?:t[sSK]?|[sKSkxqX])'"
+        },
+        {
             "map": {
+                "lh": "l'h",
+                "lz": "l'z",
                 "tK": "tl",
-                "dK\\": "dl",
+                "dL": "dl",
                 "K": "lh",
-                "K\\": "lz",
+                "L": "lz",
                 "tS": "ch",
                 "dZ": "j",
                 "S": "sh",
@@ -174,13 +275,10 @@
                 "j": "y",
                 "x": "kh",
                 "G": "gh",
-                "G\\": "g'",
+                "Q": "g'",
                 "X": "qh",
                 "R": "g'h",
-                "?": "'",
-                "_>": "'",
-                "1": "i",
-                "@": "e"
+                "7": "'"
             }
         }
     ]

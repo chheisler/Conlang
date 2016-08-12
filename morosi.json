@@ -1,0 +1,76 @@
+{
+	"start": "onset",
+	"states": {   
+		"onset": [
+			{"to": "onglide", "emit": "n", "weight": 7.1},
+			{"to": "onglide", "emit": "r", "weight": 6.9},
+			{"to": "onglide", "emit": "t", "weight": 6.9},
+			{"to": "onglide", "emit": "s", "weight": 4.7},
+			{"to": "onglide", "emit": "d", "weight": 4.2},
+			{"to": "onglide", "emit": "l", "weight": 3.9},
+			{"to": "onglide", "emit": "k", "weight": 3.1},
+			{"to": "onglide", "emit": "m", "weight": 2.7},
+			{"to": "onglide", "emit": "z", "weight": 2.7},
+			{"to": "onglide", "emit": "p", "weight": 2.1},
+			{"to": "onglide", "emit": "f", "weight": 2.0},
+			{"to": "onglide", "emit": "b", "weight": 1.8},
+			{"to": "onglide", "emit": "v", "weight": 1.7},
+			{"to": "onglide", "emit": "h", "weight": 1.4},
+			{"to": "onglide", "emit": "g", "weight": 0.8},
+			{"to": "onglide", "emit": "L", "weight": 0.8},
+			{"to": "onglide", "emit": "", "weight": 1.6}
+		],
+		"onglide": [
+			{"to": "nucleus", "emit": "i", "weight": 1.9},
+			{"to": "nucleus", "emit": "u", "weight": 1.6},
+			{"to": "nucleus", "emit": "", "weight": 19.6}
+		],
+		"nucleus": [
+			{"to": "offglide", "emit": "i", "weight": 2.6},
+			{"to": "offglide", "emit": "u", "weight": 1.7},
+			{"to": "offglide", "emit": "e", "weight": 2.8},
+			{"to": "offglide", "emit": "o", "weight": 1.4},
+			{"to": "offglide", "emit": "a", "weight": 3.1}
+		],
+		"offglide": [
+			{"to": "coda", "emit": "i", "weight": 1.9},
+			{"to": "coda", "emit": "u", "weight": 1.6},
+			{"to": "coda", "emit": "", "weight": 19.6}
+		],
+		"coda": [
+			{"to": null, "emit": "", "weight": 14.8},
+			{"to": null, "emit": "n", "weight": 7.1},
+			{"to": null, "emit": "r", "weight": 6.9},
+			{"to": null, "emit": "t", "weight": 6.9},
+			{"to": null, "emit": "s", "weight": 4.7},
+			{"to": null, "emit": "l", "weight": 3.9},
+			{"to": null, "emit": "k", "weight": 3.1},
+			{"to": null, "emit": "m", "weight": 2.7},
+			{"to": null, "emit": "p", "weight": 2.1},
+			{"to": null, "emit": "N", "weight": 1.0}
+		]
+	},
+	"changes": [
+		{
+			"name": "glide deletion",
+			"rules": [
+				{"map": {"i": ""}, "after": "i"},
+				{"map": {"u": ""}, "after": "u"},
+				{"map": {"i": ""}, "after": "i[aiueo]"},
+				{"map": {"u": ""}, "after": "u[aiueo]"}
+			]
+		},
+		{
+			"name": "palatalization",
+			"rules": [
+				{"map": {"s": "S", "z": "Z", "t": "c", "d": "j"}, "before": "i"},
+				{"map": {"i": ""}, "where": "[SZcj]_[aiueo]"}
+			]
+		}
+	],
+	"transliteration": [
+		{"map": {"S": "sh", "Z": "zh", "c": "ch", "L": "lh", "N": "ng"}},
+		{"map": {"i": "y", "u": "w"}, "where": "^_[aiueo]"},
+		{"map": {"i": "y", "u": "w"}, "where": "[aiueo]_$"}
+	]
+}

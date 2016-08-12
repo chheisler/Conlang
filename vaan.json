@@ -1,0 +1,81 @@
+{
+	"start": "start",
+	"states": {   
+		"start": [
+			{"to": "nucleus", "emit": "m", "weight": 1},
+			{"to": "nucleus", "emit": "n", "weight": 15},
+			{"to": "nucleus", "emit": "p", "weight": 2},
+			{"to": "nucleus", "emit": "t", "weight": 16},
+			{"to": "nucleus", "emit": "k", "weight": 1},
+			{"to": "nucleus", "emit": "q", "weight": 5},
+			{"to": "nucleus", "emit": "s", "weight": 6},
+			{"to": "nucleus", "emit": "", "weight": 30}
+		],
+		"onset": [
+			{"to": "nucleus", "emit": "m", "weight": 37},
+			{"to": "nucleus", "emit": "n", "weight": 29},
+			{"to": "nucleus", "emit": "N", "weight": 4},
+			{"to": "nucleus", "emit": "p", "weight": 14},
+			{"to": "nucleus", "emit": "t", "weight": 30},
+			{"to": "nucleus", "emit": "k", "weight": 6},
+			{"to": "nucleus", "emit": "q", "weight": 24},
+			{"to": "nucleus", "emit": "v", "weight": 6},
+			{"to": "nucleus", "emit": "s", "weight": 39},
+			{"to": "nucleus", "emit": "g", "weight": 16},
+			{"to": "nucleus", "emit": "r", "weight": 10},
+			{"to": "nucleus", "emit": "l", "weight": 46},
+			{"to": "nucleus", "emit": "y", "weight": 2}
+		],
+		"nucleus": [
+			{"to": "precoda", "emit": "a", "weight": 113},
+			{"to": "precoda", "emit": "i", "weight": 83},
+			{"to": "precoda", "emit": "u", "weight": 82},
+			{"to": "precoda", "emit": "aa", "weight": 0.17},
+			{"to": "precoda", "emit": "ii", "weight": 7},
+			{"to": "precoda", "emit": "uu", "weight": 5},
+			{"to": "precoda", "emit": "ia", "weight": 8},
+			{"to": "precoda", "emit": "iu", "weight": 3},
+			{"to": "precoda", "emit": "ua", "weight": 5},
+			{"to": "precoda", "emit": "ui", "weight": 4}
+		],
+		"precoda": [
+			{"to": "coda", "emit": "", "weight": 1.00, "add": -0.25},
+			{"to": "end", "emit": "", "weight": 0.0, "add": 0.25}
+		],
+		"coda": [
+			{"to": "onset", "emit": "r", "weight": 51},
+			{"to": "onset", "emit": "l", "weight": 69},
+			{"to": "onset", "emit": "", "weight": 148}
+		],
+		"end": [
+			{"to": null, "emit": "p", "weight": 3},
+			{"to": null, "emit": "t", "weight": 27},
+			{"to": null, "emit": "k", "weight": 11},
+			{"to": null, "emit": "q", "weight": 5},
+			{"to": null, "emit": "", "weight": 30}
+		]
+	},
+	"changes": [
+		{
+			"name": "dediphthongization",
+			"rules": [
+				{"map": {"i": "", "u": ""}, "after": "^", "before": "[aiu]"},
+				{"map": {"i": "", "u": "", "a": ""}, "after": "[aiu]", "before": "$"}
+			]
+		},
+		{
+			"name": "assimilation",
+			"rules": [
+				{"map": {"l": "\\1"}, "before": "([^aiu])"},
+				{"map": {"yy": "y", "ry": "y", "vv": "ff", "tt": "ts"}}
+			]
+		},
+		{
+			"name": "lowering",
+			"rules": [{"map": {"ii": "ee", "uu": "oo", "i": "e", "u": "o"}, "before": "[qr]"}]
+		}
+	],
+	"transliteration": [
+		{"map": {"NN": "nng", "N": "ng"}}
+	]
+}
